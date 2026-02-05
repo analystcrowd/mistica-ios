@@ -1,6 +1,6 @@
 .PHONY: help setup format test simulator archive export clean  skin
 
-# Simulator
+# Simulator comment added
 OS_VERSION := 18.5
 DEVICE_NAME := iPhone 16
 SIMULATOR_NAME := $(DEVICE_NAME) ($(OS_VERSION))
